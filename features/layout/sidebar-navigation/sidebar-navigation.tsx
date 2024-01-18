@@ -7,6 +7,7 @@ import { MenuItemButton } from "./menu-item-button";
 import { MenuItemLink } from "./menu-item-link";
 import { Button } from "@features/ui";
 import styles from "./sidebar-navigation.module.scss";
+import breakpoints from "@styles/breakpoint.module.scss";
 
 const menuItems = [
   { text: "Projects", iconSrc: "/icons/projects.svg", href: Routes.projects },
@@ -19,13 +20,13 @@ const menuItems = [
 const supportEmail = "support@prolog-app.com";
 
 export function SidebarNavigation() {
-  const [isDesktop, setIsDesktop] = useState(
-    typeof window !== "undefined" ? window.innerWidth >= 64 * 16 : false,
-  );
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
+    setIsDesktop(window.innerWidth >= parseFloat(breakpoints.desktop));
+
     const handleResize = () => {
-      setIsDesktop(window.innerWidth >= 64 * 16);
+      setIsDesktop(window.innerWidth >= parseFloat(breakpoints.desktop));
     };
 
     window.addEventListener("resize", handleResize);
