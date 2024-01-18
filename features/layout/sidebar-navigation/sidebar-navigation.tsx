@@ -86,7 +86,7 @@ export function SidebarNavigation() {
               iconSrc="/icons/support.svg"
               isCollapsed={isSidebarCollapsed}
               onClick={() =>
-                (window.location.href = `mailto:${supportEmail}?subject=Support Request: `)
+                window.open(`mailto:${supportEmail}?subject=Support Request: `)
               }
             />
             <MenuItemButton
