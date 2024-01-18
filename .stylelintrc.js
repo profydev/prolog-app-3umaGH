@@ -16,5 +16,18 @@ module.exports = {
         ],
       },
     ],
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        ignorePseudoClasses: ["export"],
+      },
+    ],
+    "property-no-unknown": [
+      true,
+      {
+        ignoreProperties: ["desktop"],
+        ignoreSelectors: [":export"],
+      },
+    ],
   },
 };
