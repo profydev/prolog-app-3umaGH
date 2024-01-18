@@ -6,16 +6,6 @@ module.exports = {
     "selector-class-pattern":
       "^([a-z][a-zA-Z]*)(-[a-z][a-zA-Z]*)*$|^([a-z][a-zA-Z]*)+$",
     // allow CSS modules "composes" proptery
-    "property-no-unknown": [
-      true,
-      {
-        ignoreProperties: [
-          // CSS Modules composition
-          // https://github.com/css-modules/css-modules#composition
-          "composes",
-        ],
-      },
-    ],
     "selector-pseudo-class-no-unknown": [
       true,
       {
@@ -25,8 +15,12 @@ module.exports = {
     "property-no-unknown": [
       true,
       {
-        ignoreProperties: ["desktop"],
+        // allow CSS modules "composes" proptery, as well as :export and desktop for breakpoints.
+        ignoreProperties: ["desktop", "composes"],
         ignoreSelectors: [":export"],
+
+        // CSS Modules composition
+        // https://github.com/css-modules/css-modules#composition
       },
     ],
   },
